@@ -1,0 +1,19 @@
+{
+  "name": "stm-micro",
+  "version": "1.0.0",
+  "description": "Example project to learn Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "*"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "chai-http": "*",
+    "mocha": "*"
+  }
+}
