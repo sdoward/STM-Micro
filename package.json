@@ -2,18 +2,26 @@
   "name": "stm-micro",
   "version": "1.0.0",
   "description": "Example project to learn Node.js",
-  "main": "app.js",
+  "main": "app/server.js",
   "scripts": {
     "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "body-parser": "^1.19.0",
     "express": "*"
   },
   "devDependencies": {
     "chai": "*",
     "chai-http": "*",
+    "eslint": "^7.2.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "mocha": "*"
   }
 }
