@@ -1,8 +1,8 @@
 const { Router } = require('express')
 const Joi = require('@hapi/joi')
 const routes = Router()
+const ValidationMiddleware = require('./validation_middleware')
 const UserController = require('./users/user.controller')
-const HttpCodes = require('./httpcodes')
 
 const userSchema = Joi.object({
   userName: Joi.string()
@@ -10,15 +10,7 @@ const userSchema = Joi.object({
     .required()
 })
 
-routes.post('/users', (request, response) => {
-  const { error } = userSchema.validate(request.body)
-  if (error != null) {
-    response.status(HttpCodes.BAD_REQUEST)
-    response.send(error.details.map(i => i.message).join(','))
-  } else {
-    UserController.createUser(request, response)
-  }
-})
+routes.post('/users', ValidationMiddleware(userSchema), UserController.createUser)
 
 routes.get('/users/count', (request, response) => {
   UserController.getUserCount(response)
