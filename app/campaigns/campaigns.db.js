@@ -15,10 +15,16 @@ async function getCompleteCampaigns () {
   return campaigns
 }
 
+async function campaignExists (campaignId) {
+  const campaigns = await query(`SELECT * FROM stm_micro.campaigns WHERE id = ${campaignId}`)
+  return campaigns.length > 0
+}
+
 const CampaignDAO = {
   getCampaigns,
   getActiveCampaigns,
-  getCompleteCampaigns
+  getCompleteCampaigns,
+  campaignExists
 }
 
 module.exports = CampaignDAO

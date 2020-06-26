@@ -1,9 +1,11 @@
 const OK = 200
 const BAD_REQUEST = 400
+const RESOURCE_NOT_FOUND = 404
 const CONFLICT = 409
 
 module.exports = {
   OK,
   BAD_REQUEST,
+  RESOURCE_NOT_FOUND,
   CONFLICT
 }
