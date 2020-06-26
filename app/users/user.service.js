@@ -18,7 +18,7 @@ async function createUser (userName) {
 }
 
 async function userCount () {
-  return UserDAO.getUserCount()
+  return await UserDAO.getUserCount()
 }
 
 module.exports = UserService

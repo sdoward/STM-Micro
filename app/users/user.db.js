@@ -11,7 +11,7 @@ async function addUser (userName) {
 
 async function getUserCount () {
   const rows = await query('SELECT COUNT(*) AS userCount FROM users')
-  return rows[0].userCount()
+  return rows[0].userCount
 }
 
 const UserDAO = {

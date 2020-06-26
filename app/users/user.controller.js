@@ -22,7 +22,7 @@ async function createUser (request, response) {
   }
 }
 
-async function getUserCount (response) {
+async function getUserCount (request, response) {
   const userCount = await UserService.userCount()
   response.send(`${userCount}`)
 }
