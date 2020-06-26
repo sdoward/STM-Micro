@@ -1,6 +1,5 @@
 const UserResult = Object.freeze({ Success: 0, UserExists: 1 })
-
-const users = []
+const UserDAO = require('./user.db')
 
 const UserService = {
   createUser,
@@ -8,17 +7,18 @@ const UserService = {
   UserResult
 }
 
-function createUser (userName) {
-  if (users.includes(userName)) {
+async function createUser (userName) {
+  const hasUser = await UserDAO.hasUser(userName)
+  if (hasUser) {
     return UserResult.UserExists
   } else {
-    users.push(userName)
+    await UserDAO.addUser(userName)
     return UserResult.Success
   }
 }
 
-function userCount () {
-  return users.length
+async function userCount () {
+  return UserDAO.getUserCount()
 }
 
 module.exports = UserService

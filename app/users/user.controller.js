@@ -6,9 +6,9 @@ const UserController = {
   getUserCount
 }
 
-function createUser (request, response) {
+async function createUser (request, response) {
   const userName = request.body.userName
-  const result = UserService.createUser(userName)
+  const result = await UserService.createUser(userName)
   switch (result) {
     case UserService.UserResult.Success:
       response.send('User created')
@@ -22,8 +22,9 @@ function createUser (request, response) {
   }
 }
 
-function getUserCount (response) {
-  return response.send(`${UserService.userCount()}`)
+async function getUserCount (response) {
+  const userCount = await UserService.userCount()
+  response.send(`${userCount}`)
 }
 
 module.exports = UserController
