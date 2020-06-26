@@ -22,11 +22,9 @@ async function createUser (request, response) {
   }
 }
 
-function getUserCount (response) {
-  UserService.userCount()
-    .then(function (userCount) {
-      response.send(`${userCount}`)
-    })
+async function getUserCount (response) {
+  const userCount = await UserService.userCount()
+  response.send(`${userCount}`)
 }
 
 module.exports = UserController
